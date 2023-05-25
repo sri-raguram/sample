@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hello, World!</title>
+  <title>Chatbot Example</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <h1>Hello, World!</h1>
+  <div class="chat-container">
+    <ul class="chat-messages" id="chat-messages"></ul>
+    <div class="user-input">
+      <input type="text" id="user-message" placeholder="Type your message...">
+      <input type="submit" value="Send" onclick="sendMessage()">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
