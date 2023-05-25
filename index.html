@@ -33,17 +33,18 @@
   }
 
   function loadPostData() {
-    fetch('https://fakerapi.it/api/v1/texts?_quantity=2', {  // Enter your IP address/host here
+      fetch('http://10.0.0.4:8000/qanda', {  // Enter your IP address/host here
+    //fetch('https://fakerapi.it/api/v1/texts?_quantity=2', {  // Enter your IP address/host here
 
-      method: 'GET', //POST can be used
+      method: 'POST', //POST can be used
       mode: 'cors',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
       //Following is the body input parameter example of POST call
-      // body: JSON.stringify({
-      //       title: title,
-      //       body: body,
+      body: JSON.stringify({
+             "question":"Use Table 1. Requirement of fluid based on bodyweight. Tell me the volume of fluid to be given in 24 hrs 		Maintenance for bodyweight=30 kgs",
+              "document":"vectorstore.pkl" ,
       //       userId: Math.random().toString(36).slice(2),
       //    }),
     })
