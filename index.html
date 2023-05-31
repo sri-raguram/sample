@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Retrieve Data with Fetch API</title>
+    <title>Flask Server GET Request</title>
 </head>
 <body>
-  <h1>Retrieved Data:</h1>
-  <div id="data"></div>
+    <h1>Flask Server GET Request</h1>
+    <button onclick="getData()">Get Data</button>
+    <div id="response"></div>
 
-  <script>
-    // Make the GET request using fetch()
-    fetch('api/https://flask-server.azurewebsites.net/')
-      .then(response => response.text())
-      .then(data => {
-        // Update the 'data' element with the retrieved content
-        const dataElement = document.getElementById('data');
-        dataElement.textContent = data;
-      })
-      .catch(error => {
-        // Display any errors that occur during the request
-        const dataElement = document.getElementById('data');
-        dataElement.textContent = 'An error occurred: ' + error.message;
-      });
-  </script>
+    <script>
+        function getData() {
+            fetch('api/https://flask-server.azurewebsites.net/')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('response').innerText = data;
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
 </body>
 </html>
