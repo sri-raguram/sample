@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flask Server GET Request</title>
+  <title>Ping IP Address</title>
+  <script>
+    function pingAddress() {
+      var ipAddress = document.getElementById("ipAddress").value;
+      var resultDiv = document.getElementById("result");
+      
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://api.openai.com/v1/pong?ip=" + ipAddress, true);
+      
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          resultDiv.innerText = "Ping successful!";
+        } else {
+          resultDiv.innerText = "Ping failed!";
+        }
+      };
+      
+      xhr.onerror = function() {
+        resultDiv.innerText = "Ping failed!";
+      };
+      
+      xhr.send();
+    }
+  </script>
 </head>
 <body>
-    <h1>Flask Server GET Request</h1>
-    <button onclick="getData()">Get Data</button>
-    <div id="response"></div>
-
-    <script>
-        function getData() {
-            fetch('https://flask-server.azurewebsites.net/api')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('response').innerText = data;
-                })
-                .catch(error => console.error(error));
-        }
-    </script>
+  <h1>Ping IP Address</h1>
+  <label for="ipAddress">Enter IP Address:</label>
+  <input type="text" id="ipAddress">
+  <button onclick="pingAddress()">Ping</button>
+  <div id="result"></div>
 </body>
 </html>
