@@ -10,7 +10,7 @@
 
     <script>
         function getData() {
-            fetch('api/https://flask-server.azurewebsites.net/')
+            fetch('/api/https://flask-server.azurewebsites.net/')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('response').innerText = data;
